@@ -1,1 +1,90 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@include mat-core();
+@import 'theme.scss';
+
+.my-theme {
+  @include angular-material-theme($my-theme);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+button {
+  margin: 10px
+}
+
+a, button{
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.primary {
+  background-color: mat-color($my-theme-primary);
+}
+.primary-lighter {
+  background-color: mat-color($my-theme-primary, 400);
+}
+
+.primary-lighter a:hover{
+  color: mat-color($my-theme-accent, 200);
+}
+
+.icon {
+  display: inline-block;
+  height: 30px;
+  margin: 0 auto;
+  padding-right: 5px;
+  text-align: center;
+  vertical-align: middle;
+  width: 15%;
+}
+
+.label {
+  display: inline-block;
+  margin: 0;
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+}
+
+
+.logo-wrapper {
+  background-color: mat-color($my-theme-primary, 200);
+  padding: 0;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.logo {
+  padding: 10px;
+  margin-top: 10px;
+  height: 30px;
+}
+
+.grad-segment {
+  width: 5px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.grad-250 {
+  background-color: mat-color($my-theme-primary, 250);
+}
+
+.grad-300 {
+  background-color: mat-color($my-theme-primary, 300);
+}
+
+.grad-350 {
+  background-color: mat-color($my-theme-primary, 350);
+}
+
+.grad-400 {
+  background-color: mat-color($my-theme-primary, 400);
+}
+
+.grad-450 {
+  background-color: mat-color($my-theme-primary, 450);
+}

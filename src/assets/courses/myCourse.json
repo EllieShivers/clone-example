@@ -1,0 +1,40 @@
+{
+  "course": {
+    "title": "My Course 1",
+    "date": "2000-01-01",
+    "author": "Elizabeth Shivers",
+    "description": "Sample 1",
+    "units": [
+      {
+        "title": "First Unit",
+        "lessons": [
+          {
+            "title": "lesson",
+            "type": "text",
+            "sections": [
+              {
+                "header": "Header",
+                "body": "Test Body"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Second Unit",
+        "lessons": [
+          {
+            "title": "lesson",
+            "type": "text",
+            "sections": [
+              {
+                "header": "Header",
+                "body": "Test Body"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
