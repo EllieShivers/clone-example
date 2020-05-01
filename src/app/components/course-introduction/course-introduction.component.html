@@ -1,0 +1,46 @@
+<div class="course-introduction-wrapper">
+  <div fxLayout="column" fxLayoutAlign="start start">
+    <div fxLayout.gt-sm="row" fxLayout.xs="column" fxLayoutAlign.gt-sm="center center"
+         fxLayoutAlign.xs="start start">
+      <div class="course-introduction-label" [ngClass.gt-md]="'course-introduction-label-large'">
+        Course Author<span *ngIf="currentCourse?.authors?.length > 1">s</span>
+      </div>
+      <div class="course-introduction-data">
+        <span *ngFor="let author of currentCourse?.authors; let i = index">
+          {{author}}
+          <span *ngIf="i < currentCourse?.authors.length - 1">, </span>
+        </span>
+      </div>
+    </div>
+    <div fxLayout.gt-sm="row" fxLayout.xs="column" fxLayoutAlign.gt-sm="center center"
+         fxLayoutAlign.xs="start start">
+      <div class="course-introduction-label" [ngClass.gt-md]="'course-introduction-label-large'">
+        Creation Date
+      </div>
+      <div class="course-introduction-data" [ngClass.lt-sm]="'course-introduction-data-small'">
+        {{currentCourse?.creationDate}}
+      </div>
+    </div>
+    <div fxLayout.gt-sm="row" fxLayout.xs="column" fxLayoutAlign.gt-sm="center center"
+         fxLayoutAlign.xs="start start">
+      <div class="course-introduction-label" [ngClass.gt-md]="'course-introduction-label-large'">
+        Last Updated
+      </div>
+      <div class="course-introduction-data" [ngClass.lt-sm]="'course-introduction-data-small'">
+        {{currentCourse?.lastUpdated}}
+      </div>
+    </div>
+    <div fxLayout.gt-md="row" fxLayout.lt-sm="column" fxLayoutAlign.gt-md="center center"
+         fxLayoutAlign.lt-sm="start start">
+      <div class="course-introduction-label" [ngClass.gt-md]="'course-introduction-label-large'">
+        Course Description
+      </div>
+      <div class="course-introduction-data">
+        {{currentCourse?.description}}
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <p [innerHTML]="currentCourse.introduction"></p>
+  </div>
+</div>

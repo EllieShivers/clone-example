@@ -1,0 +1,62 @@
+#modal-content-wrapper {
+  width: 100%;
+  height: 100%;
+  display: grid;
+}
+
+#modal-title {
+  font-size: 22px;
+}
+
+#modal-footer {
+  justify-self: right;
+  align-self: center;
+}
+
+.modal-button {
+  margin: 10px;
+  background-color: #4e4e4e;
+}
+
+.modal-button:hover {
+  background-color: #7e7e7e;
+}
+
+.course-details{
+  background-color: whitesmoke;
+  color: black;
+  padding: 10px;
+}
+
+table{
+
+}
+
+.course-details-label {
+  font-weight: bold;
+  text-align: right;
+  flex: 1 1 auto;
+  padding: 4px 8px 4px 4px;
+  width: 100px;
+}
+.course-details-data {
+  text-align: left;
+  text-overflow-ellipsis: true;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+  max-height: 20px;
+  max-width: 500px
+}
+
+.scrolling-viewport {
+  height: 100px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.available-courses-label{
+  font-size: larger;
+  padding: 5px;
+}

@@ -23,7 +23,7 @@ a, button{
   background-color: mat-color($my-theme-primary);
 }
 .primary-lighter {
-  background-color: mat-color($my-theme-primary, 400);
+  background-color: mat-color($my-theme-primary, 300);
 }
 
 .primary-lighter a:hover{
@@ -57,10 +57,21 @@ a, button{
   vertical-align: middle;
 }
 
+.logo-wrapper-menu {
+  text-align: center;
+  width: 100%;
+}
+
 .logo {
   padding: 10px;
   margin-top: 10px;
   height: 30px;
+}
+
+.logo-menu {
+  height: 30px;
+  padding-top: 10px;
+  margin: auto;
 }
 
 .grad-segment {
@@ -69,22 +80,28 @@ a, button{
   padding: 0;
   margin: 0;
 }
-.grad-250 {
-  background-color: mat-color($my-theme-primary, 250);
-}
 
 .grad-300 {
   background-color: mat-color($my-theme-primary, 300);
-}
-
-.grad-350 {
-  background-color: mat-color($my-theme-primary, 350);
 }
 
 .grad-400 {
   background-color: mat-color($my-theme-primary, 400);
 }
 
-.grad-450 {
-  background-color: mat-color($my-theme-primary, 450);
+.mat-menu-item {
+  font-size: larger !important;
+}
+
+
+
+.mat-menu-item:hover, .mat-menu-item mat-icon:hover, .menu-icon:hover, .mat-menu-item-button:hover {
+  color: mat-color($my-theme-warn, 300);
+}
+
+.body {
+  padding: 20px;
+}
+p {
+  font-size: larger;
 }

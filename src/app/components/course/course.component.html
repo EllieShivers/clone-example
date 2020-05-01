@@ -1,0 +1,84 @@
+<mat-drawer-container>
+  <mat-drawer #menu mode="side" id="menu" [mode]="isLarge ? 'side' : 'over'" [opened]="opened">
+    <div class="close-wrapper" fxHide.gt-xs><mat-icon (click)="menu.toggle()" title="Toggle Unit List" class="menu-control-icon">close</mat-icon></div>
+    <ul class="menu-list">
+      <li>
+        <div class="list-unit-title-wrapper" fxLayout="row" fxLayoutAlign="space-between end" (click)="selectUnit(-1)"
+             [ngClass]="{'selected' : -1 === currentUnitIndex}">
+          <div class="list-unit-title-text list-course-overview-text">
+            Course Introduction
+          </div>
+        </div>
+      </li>
+      <mat-divider></mat-divider>
+      <li *ngFor="let unit of currentCourse.units, let i = index">
+        <div class="list-unit-title-wrapper" fxLayout="row" fxLayoutAlign="space-between end" (click)="selectUnit(i)"
+             [ngClass]="{'selected' : i === currentUnitIndex}">
+          <div class="list-unit-title-text">
+            <span class="menu-unit-number">Unit {{i + 1}}</span> <br>
+            {{unit.title}}
+          </div>
+          <div class="list-unit-title-arrow">
+            <mat-icon class="icon" *ngIf="currentUnitIndex != i">keyboard_arrow_right</mat-icon>
+            <mat-icon class="icon" *ngIf="currentUnitIndex === i">keyboard_arrow_down</mat-icon>
+          </div>
+        </div>
+        <ol *ngIf="currentUnitIndex === i">
+          <li *ngFor="let lesson of unit.lessons, let j = index" (click)="selectLesson(j)">
+            <div class="list-lesson-title"
+                 [ngClass]="{'selected-lesson' : lesson ===currentLesson}">{{lesson.title}}</div>
+          </li>
+        </ol>
+        <mat-divider></mat-divider>
+      </li>
+    </ul>
+
+  </mat-drawer>
+
+  <mat-drawer-content>
+
+    <mat-toolbar class="lesson-nav-bar">
+      <mat-toolbar-row fxHide fxShow.sm fxShow.xs>
+        <span class="header-spacer"><mat-icon (click)="menu.toggle()" title="Toggle Unit List" class="menu-close-icon"><span *ngIf="!menu.opened">toggle_off</span><span *ngIf="menu.opened">toggle_on</span></mat-icon></span>
+        <span class="header-spacer"></span>
+        <span class="nav-current-lesson" [ngClass.lt-sm]="'nav-label-small'">Currently Viewing:
+          <span *ngIf="!currentLesson">Course Introduction</span>
+          <span *ngIf="currentLesson">{{currentLesson.title}}</span>
+        </span>
+        <span class="header-spacer"></span>
+        <span class="header-spacer"></span>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <span class="header-spacer"><mat-icon (click)="menu.toggle()" title="Toggle Unit List" class="menu-close-icon" fxHide.lt-md><span *ngIf="!menu.opened">toggle_off</span><span *ngIf="menu.opened">toggle_on</span></mat-icon></span>
+        <span class="nav-label-spacer nav-spacer-left" [ngClass.lt-sm]="'nav-label-small'">
+      <a title="Previous Lesson" (click)="goToPrev()" *ngIf="currentLesson">
+        <mat-icon class="icon">navigate_before</mat-icon>
+        <span class="label">Previous Lesson</span>
+      </a>
+    </span>
+        <span class="nav-current-lesson">
+      <span fxHide.xs fxHide.sm title="Course Introduction">
+        Currently Viewing:
+        <span *ngIf="!currentLesson">Course Introduction</span>
+        <span *ngIf="currentLesson">{{currentLesson.title}}</span>
+      </span>
+    </span>
+        <span class="nav-label-spacer nav-spacer-right" [ngClass.lt-sm]="'nav-label-small'">
+      <a title="Next Lesson" (click)="goToNext()"
+         *ngIf="currentLesson != lastLesson">
+        <span class="label">Next Lesson</span>
+        <mat-icon class="icon">navigate_next</mat-icon>
+      </a>
+    </span>
+        <span class="header-spacer"></span>
+      </mat-toolbar-row>
+
+    </mat-toolbar>
+    <div class="course-content">
+      <app-lesson *ngIf="currentLesson" [currentLesson]="currentLesson"
+                  [currentCoursePath]="currentCoursePath"></app-lesson>
+      <app-course-introduction *ngIf="!currentLesson" [currentCourse]="currentCourse"></app-course-introduction>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

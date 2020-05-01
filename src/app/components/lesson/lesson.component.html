@@ -1,0 +1,13 @@
+  <div *ngIf="currentLesson?.imageHeader" class="header-wrapper">
+    <img class="header" src="assets/courses/{{currentCoursePath}}/{{currentLesson.imageHeader.fileName}}"
+         alt="{{currentLesson.title}}" title="{{currentLesson.title}}">
+  </div>
+
+  <h1>{{currentLesson.title}}</h1>
+
+  <div class="section" *ngFor="let section of currentLesson.sections">
+    <h2>{{section.header}}</h2>
+    <p *ngFor="let paragraph of section.body">{{paragraph}}</p>
+  </div>
+
+

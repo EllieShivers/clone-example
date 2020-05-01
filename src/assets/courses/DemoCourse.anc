@@ -1,0 +1,64 @@
+[COURSE_TITLE] Animo Demo Course
+[CREATION_DATE] 2010-01-01
+[LAST_UPDATED] 2020-01-01
+[AUTHORS] Elizabeth Shivers
+[DESCRIPTION] Demo course.
+
+[INTRODUCTION] Welcome to the Animo Demo Course! This course acts as a tutorial to walk you through viewing a course through Animo as well as building courses of your own! This page provides an Course Introduction, which serves as a landing page for your course. Above this text you will see general course details such as author, creation date, when the course was last updated, and a short course description that is pulled from the course meta data. There are two primary means of navigation: the lesson controls at the top of this frame and the navigation pane to the left which provides a complete list of units and lessons for a unit once one is selected. You can begin this tutorial by clicking next lesson above or selecting unit 1 then lesson 1 in the navigation pane.
+
+# Demo Unit 1
+## Image Header Demo
+[IMAGE_HEADER] sampleheader.png
+### Text Section
+Paragraph 1 demo text.
+Paragraph 2 demo text.
+
+# Demo Unit 2
+## Video Demo
+[VIDEO] https://www.youtube.com/embed/M7lc1UVf-VE
+[TRANSCRIPT]
+
+### Text Section
+Paragraph 1 Demo text.
+
+### Text Section
+Paragraph 1 Demo text.
+
+## Lesson 2-2
+
+### Text Section (Ex: Quiz Instructions)
+Quiz Instructions here.
+
+### Quiz Section [QUIZ]
+
+[QUESTION] Water is wet. [TF]
+[CORRECT_ANSWER] T
+[FEEDBACK] Water is, indeed, wet.
+
+[QUESTION] Which classic TV show features a family whose last name is Simpson? [MC]
+[ANSWER] He-Man
+[ANSWER] Samurai Jack
+[ANSWER] The Simpsons
+[ANSWER] Spongebob Squarepants
+[CORRECT_ANSWER] 3
+[FEEDBACK] The Simpsons is about the Simpson family. That's just how names work.
+
+# Demo Unit 3
+## Lesson 3-1
+### Text Section
+SURPRISE IT'S MORE TEXT!
+## Lesson 3-2
+### Text Section
+SURPRISE IT'S MORE TEXT! 
+## Lesson 3-3
+### Text Section
+SURPRISE IT'S MORE TEXT! 
+## Lesson 3-4
+### Text Section
+SURPRISE IT'S MORE TEXT! 
+## Lesson 3-5
+### Text Section
+SURPRISE IT'S MORE TEXT! 
+## Lesson 3-6
+### Text Section
+SURPRISE IT'S MORE TEXT! 

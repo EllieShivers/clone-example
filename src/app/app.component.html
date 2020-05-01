@@ -1,32 +1,44 @@
-<mat-toolbar class="primary">
+<mat-toolbar>
   <mat-toolbar-row>
 
-    <button mat-icon-button [matMenuTriggerFor]="appMenu">
-      <mat-icon>menu</mat-icon>
+    <button mat-icon-button [matMenuTriggerFor]="appMenu" title="Open Menu">
+      <mat-icon class="menu-icon">menu</mat-icon>
     </button>
-    <span class="course-title">{{currentCourse.title}}</span>
+    <span class="header-spacer"></span>
+    <h1 class="course-title" [ngClass.gt-md]="'course-title-large'" [ngClass.lt-sm]="'course-title-small'">{{currentCourse.title}}</h1>
 
     <span class="grad-segment grad-400" fxHide.xs></span>
     <span class="grad-segment grad-300" fxHide.xs></span>
     <span class="logo-wrapper" fxHide.xs>
-    <img src="assets/logo.png" class="logo" fxHide.xs></span>
+      <a href="https://github.com/EllieShivers/animo" target="_blank" title="Animo on GitHub">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+        <img src="assets/logo.png" class="logo" alt="Animo" fxHide.xs></a>
+    </span>
   </mat-toolbar-row>
 </mat-toolbar>
 
 <mat-menu #appMenu="matMenu" class="mat-menu">
   <div class="menu-content-wrapper">
-    <button mat-menu-item (click)="openSelectCourseDialogue()">
+    <button mat-menu-item class="mat-menu-item-button">
       <mat-icon class="icon">help</mat-icon>
       Help
     </button>
-    <hr>
-  <button mat-menu-item>
-    <mat-icon class="icon">menu_book</mat-icon>
-    Change Course Module
-  </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="openSelectCourseDialogue()">
+      <mat-icon class="icon">menu_book</mat-icon>
+      Change Course Module
+    </button>
+    <mat-divider></mat-divider>
+
+    <button mat-menu-item class="logo-wrapper-menu" fxHide fxShow.xs><a href="https://github.com/EllieShivers/animo"
+                                                                        target="_blank" title="Animo on GitHub">
+
+      <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+      <img src="assets/logo_cool.png" class="logo-menu" alt="Animo" fxHide fxShow.xs></a>
+    </button>
   </div>
 </mat-menu>
 
-<app-course>
+<app-course [currentCourse]="currentCourse" [currentCoursePath]="currentCoursePath">
 
 </app-course>

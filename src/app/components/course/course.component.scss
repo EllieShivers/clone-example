@@ -1,0 +1,174 @@
+
+/* You can add global styles to this file, and also import other style files */
+@import '../../../../node_modules/@angular/material/theming';
+@include mat-core();
+@import '../../../theme';
+
+//noinspection ALL
+.my-theme {
+  @include angular-material-theme($my-theme);
+}
+
+
+mat-sidenav-container, mat-sidenav-content, mat-sidenav, mat-drawer, mat-drawer-container {
+  height: 100%;
+}
+
+mat-drawer {
+  background-color: mat-color($my-theme-primary, 500);
+  border-right: black 5px solid;
+  width: 250px;
+}
+mat-drawer-content {
+  background-color: white;
+  color: black;
+}
+
+.lesson-nav-bar {
+  background-color: mat-color($my-theme-accent);
+}
+
+.lesson-nav-bar a:hover {
+  color: mat-color($my-theme-warn, 300)
+}
+
+.navigation-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.nav-spacer-left {
+  text-align: left;
+}
+
+.nav-space-right {
+  text-align: right;
+}
+
+.nav-current-lesson {
+  margin-left: 10px;
+  margin-right: 10px;
+  flex: 1 1 auto;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+  white-space: nowrap
+}
+
+.nav-label-spacer {
+  flex: 1 1 auto;
+  width: 150px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 30px;
+}
+.nav-label-small {
+  font-size: 15px;
+}
+ul {
+  tab-index: mat-color($my-theme-accent);
+  list-style-type: none;
+  padding: 10px;
+}
+
+ol {
+  background-color: mat-color($my-theme-primary, 400);
+  tab-index: mat-color($my-theme-accent);
+  padding: 15px;
+  list-style: none;
+}
+
+
+.list-unit-title-wrapper {
+  border-bottom: 1px mat-color($my-theme-primary, 800) solid;
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+}
+
+
+.list-unit-title-wrapper {
+  flex: 2 1 auto;
+  font-size: larger;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.list-unit-title-arrow {
+  flex: 1 1 auto;
+  vertical-align: bottom;
+  text-align: right;
+}
+
+
+.list-unit-title-wrapper:hover {
+  border-bottom: 1px mat-color($my-theme-primary, 100) solid;
+}
+
+.list-lesson-title {
+  border-bottom: 1px transparent solid;
+  cursor: pointer;
+  margin: 5px;
+  padding-left: 10px;
+}
+
+.list-lesson-title:hover {
+  border-bottom: 1px white solid;
+}
+
+.selected-lesson {
+  border-bottom: 1px mat-color($my-theme-warn, 300) solid;
+}
+
+.list-course-overview-text {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.menu-list {
+  padding: 5px !important;
+}
+.list-unit-title {
+  font-family: "Century Gothic", serif;
+  font-size: 20px;
+  font-weight: bold;
+
+}
+.menu-unit-number {
+  font-size: 16px;
+}
+
+.menu a {
+  color: #EFF7F6;
+  text-decoration: none;
+}
+
+
+/* Course Introduction Styling */
+.course-content {
+  font-size: larger;
+  padding: 50px;
+}
+
+.selected {
+  background-color: mat-color($my-theme-primary, 700);
+}
+
+.close-wrapper {
+  width: 100%;
+  text-align: right;
+}
+.close-wrapper mat-icon {
+  margin: 20px;
+  cursor: pointer;
+}
+
+.mat-icon {
+  cursor: pointer;
+}
+.menu-close-icon {
+  color: mat-color($my-theme-primary, 400);
+  font-size: larger;
+}

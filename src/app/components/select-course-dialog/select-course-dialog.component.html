@@ -1,0 +1,76 @@
+<div id="modal-content-wrapper">
+  <header id="modal-header">
+    <h1 id="modal-title">Change Course</h1>
+    <mat-divider></mat-divider>
+  </header>
+
+  <section id="modal-body">
+    <div *ngIf="metaData && metaData.length > 0">
+      <!--div *ngFor="let course of metaData; let i = index">
+        <input type="radio" id="{{course.title}}" name="manifestList" [(ngModel)]="currentSelectionIndex" [value]="i">
+        <label for="{{course.title}}">{{course.title}}</label>
+      </div-->
+      <div class="available-courses-label">Available Courses</div>
+      <cdk-virtual-scroll-viewport itemSize="2" class="scrolling-viewport">
+        <div *cdkVirtualFor="let course of metaData;  let i = index" class="example-item">
+          <input type="radio" id="{{course.title}}" name="manifestList" [(ngModel)]="currentSelectionIndex" [value]="i">
+          <label for="{{course.title}}">{{course.title}}</label>
+        </div>
+      </cdk-virtual-scroll-viewport>
+      <mat-divider></mat-divider>
+
+      <div class="course-details" fxLayout="column" fxLayoutAlign="start start" fxHide.lt-sm>
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <div class="course-details-label">
+            Title
+          </div>
+          <div class="course-details-data">
+            {{metaData[currentSelectionIndex].title}}
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <div class="course-details-label">
+            Author(s)
+          </div>
+          <div class="course-details-data">
+            {{metaData[currentSelectionIndex].authors[0]}}
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <div class="course-details-label">
+            Updated
+          </div>
+          <div class="course-details-data">
+            {{metaData[currentSelectionIndex].lastUpdated}}
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <div class="course-details-label">
+            Description
+          </div>
+          <div class="course-details-data">
+            {{metaData[currentSelectionIndex].description}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!metaData || metaData.length === 0" fxLayout="row" fxLayoutAlign="center center">
+      <div>
+        <mat-icon color="warn" [inline]="true" style="font-size: 40px">error</mat-icon>
+      </div>
+      <div>
+        Error loading course list. List may still be building, please close the course selection and try again. If the
+        problem persists, please post an issue on GitHub at
+        <a href="https://github.com/EllieShivers/animo/issues" target="_blank"
+           style="color: white; text-decoration: underline">
+          https://github.com/EllieShivers/animo/issues</a>.
+      </div>
+    </div>
+  </section>
+  <footer id="modal-footer">
+    <button mat-raised-button class="modal-button" (click)="closePopup()">Cancel</button>
+    <button mat-raised-button class="modal-button" (click)="selectCourse()" *ngIf="metaData && metaData.length > 0">
+      Select Course
+    </button>
+  </footer>
+</div>

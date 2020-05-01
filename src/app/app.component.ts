@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {CourseMapperService} from './services/course-mapper.service';
-import {Course} from '../../projects/simple-course-core/src/lib/models/course';
 import {HttpClient} from '@angular/common/http';
 import {CourseProviderService} from './services/course-provider.service';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import {SelectCourseDialogComponent} from './components/select-course-dialog/select-course-dialog.component';
+import {Course} from './models/course';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +12,15 @@ import {CourseProviderService} from './services/course-provider.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  themeClass: string;
+
 
   title: string = 'Animo';
-  opened: boolean = false;
+
   currentCourse: any = '';
+  currentCoursePath: string = '';
   courses: Course[] = [];
 
-  constructor(private courseMapper: CourseMapperService, private http: HttpClient, private courseProvider: CourseProviderService) {
+  constructor(private courseMapper: CourseMapperService, private http: HttpClient, private courseProvider: CourseProviderService, private matDialog: MatDialog) {
 
   }
 
@@ -25,32 +28,31 @@ export class AppComponent implements OnInit {
     this.subscribeToCourse(0);
 
     // TODO: If only one course in manifest remove select course buttons. Otherwise populate list.
-    /*
-    // subscribe to some source of theme change events, then...
-    this.themeClass = newThemeClass;
-
-    // remove old theme class and add new theme class
-    // we're removing any css class that contains '-theme' string but your theme classes can follow any pattern
-    const overlayContainerClasses = this.overlayContainer.getContainerElement().classList;
-    const themeClassesToRemove = Array.from(classList).filter((item: string) => item.includes('-theme'));
-    if (themeClassesToRemove.length) {
-      overlayContainerClasses.remove(...themeClassesToRemove);
-    }
-    overlayContainerClasses.add(newThemeClass);*/
   }
 
   subscribeToCourse(courseIndex: number): void {
     this.courseProvider.getCourseFromManifest(courseIndex).then((data) => {
-        console.log('In Then');
         this.currentCourse = this.courseMapper.parseMarkdown(data);
-        console.log(this.currentCourse.title);
+        this.currentCoursePath = this.courseProvider.getCoursePath(courseIndex);
       })
       .catch((error) => console.log(error))
-      .finally(() => console.log('In Finally')
+      .finally(() => console.log('Finally')
       );
   }
 
   openSelectCourseDialogue(): void {
       // TODO: course switching. Pop up window, select new course? Use nested?
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "300";
+    dialogConfig.width = "50em";
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.matDialog.open(SelectCourseDialogComponent, dialogConfig);
+    modalDialog.componentInstance.selectCourseEvent.subscribe(($e) => {
+      this.subscribeToCourse($e);
+    })
   }
+
 }

@@ -8,17 +8,30 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
-import { CourseComponent } from './course/course.component';
+import { CourseComponent } from './components/course/course.component';
 import {MatMenuModule} from '@angular/material/menu';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {MatDividerModule} from '@angular/material/divider';
-import { LessonComponent } from './lesson/lesson.component';
+import { LessonComponent } from './components/lesson/lesson.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { SelectCourseDialogComponent } from './components/select-course-dialog/select-course-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {FormsModule} from '@angular/forms';
+import { QuizComponent } from './components/quiz/quiz.component';
+import { QuestionComponent } from './components/question/question.component';
+import { CourseIntroductionComponent } from './components/course-introduction/course-introduction.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseComponent,
-    LessonComponent
+    LessonComponent,
+    SelectCourseDialogComponent,
+    QuizComponent,
+    QuestionComponent,
+    CourseIntroductionComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +43,12 @@ import { LessonComponent } from './lesson/lesson.component';
     MatButtonModule,
     MatMenuModule,
     HttpClientModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSidenavModule,
+    MatDialogModule,
+    FormsModule,
+    ScrollingModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
